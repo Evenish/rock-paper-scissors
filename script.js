@@ -19,16 +19,31 @@ return playerSelection;
 }
 
 function compareSelection() { // create function to compare selection
-let computerSelection = computerPlay(); // call computerPlay function and assign return value to computerSelection
-let playerSelection = playerPlay(); // call playerPlay function and assign return value to playerSelection
-if (playerSelection === computerSelection) { // check if both selections are the same
-    console.log(`It's a tie!`); // announce tie
-} else if ((playerSelection === 'rock' && computerSelection === 'scissors') || // check if player wins against computer
-            (playerSelection === 'paper' && computerSelection === 'rock') ||
-            (playerSelection === 'scissors' && computerSelection === 'paper')) {
-    console.log(`You win! ${playerSelection} beats ${computerSelection}`); // output victory message with playerSelection and computerSelection
-} else { // otherwise player loses
-    console.log(`You lose. ${computerSelection} beats ${playerSelection}`); // output defeat message
+let computerSelection = computerPlay(); // call computerPlay() and assign return value to computerSelection
+let playerSelection = playerPlay(); // call playerPlay() and assign return value to playerSelection
+
+//if (playerSelection === computerSelection) { // check if both selections are the same
+//    console.log(`It's a tie!`); // announce tie
+//} else if ((playerSelection === 'rock' && computerSelection === 'scissors') || // check if player wins against computer
+//            (playerSelection === 'paper' && computerSelection === 'rock') ||
+//            (playerSelection === 'scissors' && computerSelection === 'paper')) {
+//    console.log(`You win! ${playerSelection} beats ${computerSelection}`); // output victory message with playerSelection and computerSelection
+//} else { // otherwise player loses
+//    console.log(`You lose. ${computerSelection} beats ${playerSelection}`); // output defeat message
+//}
+
+switch(true) { // add switch statement to compare selections
+    case playerSelection === computerSelection: // check if both selections are the same
+        console.log(`It's a tie!`);
+    break;
+    case playerSelection === 'rock' && computerSelection === 'scissors': // check if player wins against computer
+    case playerSelection === 'paper' && computerSelection === 'rock':
+    case playerSelection === 'scissors' && computerSelection === 'paper':
+        console.log(`You win! ${playerSelection} beats ${computerSelection}`); // output victory message with playerSelection and computerSelection
+    break;
+    default: // otherwise player loses
+        console.log(`You lose. ${computerSelection} beats ${playerSelection}`); // output defeat message
+    break;
 }
 }
 
